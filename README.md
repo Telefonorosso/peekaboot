@@ -8,7 +8,7 @@ L2BOOT USB lets an Amiga boot from, or access, an HDF disk image stored on a Win
 
 - The hardware configuration above and a working USB data connection to a Windows PC.
 - A Windows WinUSB driver bound to the correct L2BOOT USB interface.
-- A compatible Windows companion executable (`rdisk_host_winusb.exe`).
+- A compatible Windows companion executable (`rdisk_host_winusb.exe`); optionally, the Windows GUI (`l2boot-gui.exe`).
 - An HDF containing a valid Amiga RDB and a bootable AmigaOS partition if USB boot is required.
 - Matching prebuilt Amiga files: `ptable.library` 1.1, `l2scsi.device` 43.115 and `l2remote.boot` 3.4, plus `LoadModule`.
 
@@ -16,17 +16,24 @@ L2BOOT USB lets an Amiga boot from, or access, an HDF disk image stored on a Win
 
 ## 2. Start the Windows companion
 
-1. Back up the HDF and copy it to the Windows PC, for example `C:\L2BOOT\disk.hdf`.
+1. Back up your HDF and copy it to the Windows PC, for example `C:\L2BOOT\disk.hdf`.
 2. Connect the USB cable and ensure the correct interface uses WinUSB.
-3. Open a terminal in the companion's directory and run:
 
-   ```bat
-   rdisk_host_winusb.exe "C:\L2BOOT\disk.hdf"
-   ```
+**Using the GUI (recommended):**
 
-4. Leave the companion running while the Amiga uses the disk.
+1. Put `l2boot-gui.exe` and `rdisk_host_winusb.exe` in the same folder, then run the GUI.
+2. Select the HDF file. Use **Create** if you need to prepare a new disk image.
+3. **Read-only is enabled by default.** Uncheck it to allow changes to the HDF. Adjust **Boot priority** only if needed.
+4. Click **Start**, then boot or reset the Amiga. The window shows connection/activity messages, separate read/write speeds, transferred data totals and an error counter.
+5. When finished, stop Amiga disk activity before clicking **Stop** or closing the GUI.
 
-The normal operating mode is **read/write**. Do not open the same HDF for writing in another application at the same time.
+**Command-line alternative:** Open a terminal in the companion folder and run:
+
+```bat
+rdisk_host_winusb.exe "C:\L2BOOT\disk.hdf"
+```
+
+The command-line example uses the normal **read/write** mode. Never open the same HDF for writing in another application while it is being served.
 
 ## 3. Install and boot on the Amiga
 
