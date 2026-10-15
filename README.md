@@ -11,7 +11,7 @@ peekaboot lets an Amiga boot from, or access, an HDF disk image stored on a Wind
 ## 1. Requirements
 
 - The hardware configuration above and a working USB data connection to a Windows PC.
-- A compatible Windows companion executable (`rdisk_host_winusb.exe`); optionally, the Windows GUI (`peekaboot.exe`).
+- The Windows companion executable (`rdisk_host_winusb.exe`); optionally, the Windows GUI (`peekaboot.exe`).
 - An HDF containing a valid Amiga RDB and a bootable AmigaOS partition if USB boot is required.
 - Matching prebuilt Amiga files: `ptable.library` 1.1, `l2scsi.device` 43.115 and `l2remote.boot` 3.4, plus `LoadModule`.
 
