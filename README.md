@@ -2,7 +2,7 @@
   <img src="logo.jpg" alt="obviously hand drawen pixel by pixel">
 </p>
 
-**AI CODED**
+## AI CODED
 
 peekaboot lets an Amiga boot from, or access, an HDF disk image stored on a Windows PC through USB. The disk appears as `l2scsi.device`, unit `0`. No Amiga TCP/IP stack is needed.
 
