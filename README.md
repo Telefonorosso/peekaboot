@@ -31,6 +31,10 @@ L2BOOT USB lets an Amiga boot from, or access, an HDF disk image stored on a Win
 4. Click **Start**, then boot or reset the Amiga. The window shows connection/activity messages, separate read/write speeds, transferred data totals and an error counter.
 5. When finished, stop Amiga disk activity before clicking **Stop** or closing the GUI.
 
+<p align="center">
+  <img src="gui.jpg">
+</p>
+
 **Command-line alternative:** Open a terminal in the companion folder and run:
 
 ```bat
