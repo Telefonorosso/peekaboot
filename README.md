@@ -4,28 +4,25 @@
 
 # peekaboot - AI CODED
 
-L2BOOT USB lets an Amiga boot from, or access, an HDF disk image stored on a Windows PC through USB. The disk appears as `l2scsi.device`, unit `0`. No Amiga TCP/IP stack is needed.
+peekaboot lets an Amiga boot from, or access, an HDF disk image stored on a Windows PC through USB. The disk appears as `l2scsi.device`, unit `0`. No Amiga TCP/IP stack is needed.
 
 **Hardware-validated configuration:** Amiga 600 + PiStorm Classic + Emu68 1.1 + Raspberry Pi 3A+.
 
 ## 1. Requirements
 
 - The hardware configuration above and a working USB data connection to a Windows PC.
-- A Windows WinUSB driver bound to the correct L2BOOT USB interface.
-- A compatible Windows companion executable (`rdisk_host_winusb.exe`); optionally, the Windows GUI (`l2boot-gui.exe`).
+- A compatible Windows companion executable (`rdisk_host_winusb.exe`); optionally, the Windows GUI (`peekaboot.exe`).
 - An HDF containing a valid Amiga RDB and a bootable AmigaOS partition if USB boot is required.
 - Matching prebuilt Amiga files: `ptable.library` 1.1, `l2scsi.device` 43.115 and `l2remote.boot` 3.4, plus `LoadModule`.
 
-**Package note:** The milestone ZIP is primarily a source archive. It does **not** include all ready-to-run binaries or the Windows companion executable. Obtain matching prebuilt files separately. Do not mix driver and boot-module revisions.
-
 ## 2. Start the Windows companion
 
-1. Back up your HDF and copy it to the Windows PC, for example `C:\L2BOOT\disk.hdf`.
+1. Back up your HDF and copy it to the Windows PC, for example `C:\peekaboot\disk.hdf`.
 2. Connect the USB cable and ensure the correct interface uses WinUSB.
 
 **Using the GUI (recommended):**
 
-1. Put `l2boot-gui.exe` and `rdisk_host_winusb.exe` in the same folder, then run the GUI.
+1. Put `peekaboot.exe` and `rdisk_host_winusb.exe` in the same folder, then run the GUI.
 2. Select the HDF file. Use **Create** if you need to prepare a new disk image.
 3. **Read-only is enabled by default.** Uncheck it to allow changes to the HDF. Adjust **Boot priority** only if needed.
 4. Click **Start**, then boot or reset the Amiga. The window shows connection/activity messages, separate read/write speeds, transferred data totals and an error counter.
@@ -38,7 +35,7 @@ L2BOOT USB lets an Amiga boot from, or access, an HDF disk image stored on a Win
 **Command-line alternative:** Open a terminal in the companion folder and run:
 
 ```bat
-rdisk_host_winusb.exe "C:\L2BOOT\disk.hdf"
+rdisk_host_winusb.exe "C:\peekaboot\disk.hdf"
 ```
 
 The command-line example uses the normal **read/write** mode. Never open the same HDF for writing in another application while it is being served.
@@ -46,12 +43,12 @@ The command-line example uses the normal **read/write** mode. Never open the sam
 ## 3. Install and boot on the Amiga
 
 1. Boot your existing local AmigaOS installation.
-2. Copy `ptable.library`, `l2scsi.device` and `l2remote.boot` into `SYS:L2BOOT/`.
+2. Copy `ptable.library`, `l2scsi.device` and `l2remote.boot` into `SYS:peekaboot/`.
 3. Make sure `LoadModule` is available from the Shell.
 4. With the Windows companion already running, execute:
 
    ```amiga
-   CD SYS:L2BOOT
+   CD SYS:peekaboot
    LoadModule ptable.library l2scsi.device l2remote.boot noreboot
    ```
 
@@ -90,4 +87,4 @@ Compatibility beyond the hardware-validated configuration above is not guarantee
 
 ## Credits
 
-**L2BOOT USB:** Francesco Talarico / [Telefonorosso](https://github.com/Telefonorosso/l2boot). **`ptable.library`:** Jaroslav Pulchart. **LoadModule:** Thomas Richter and Etienne Vogt. Thanks to the PiStorm, Emu68 and Amiga development communities, and to the developers of the underlying software on which this project builds.
+**`ptable.library`:** Jaroslav Pulchart. **LoadModule:** Thomas Richter and Etienne Vogt. Thanks to the PiStorm, Emu68 and Amiga development communities, and to the developers of the underlying software on which this project builds.
