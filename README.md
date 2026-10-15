@@ -4,7 +4,7 @@
 
 ## AI CODED
 
-peekaboot lets an Amiga boot from, or access, an HDF disk image stored on a Windows PC through USB. The disk appears as `l2scsi.device`, unit `0`. No Amiga TCP/IP stack is needed.
+peekaboot lets an Amiga boot from, or access, an HDF disk image stored on a Windows PC through USB. The disk appears as `l2scsi.device`, unit `0`. No Amiga TCP/IP or USB stack is needed.
 
 **Hardware-validated configuration:** Amiga 600 + PiStorm Classic + Emu68 1.1 + Raspberry Pi 3A+.
 
